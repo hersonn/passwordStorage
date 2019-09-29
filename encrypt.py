@@ -2,14 +2,20 @@ import decrypt
 
 import base64
 import os
+import uuid
 from cryptography.fernet import Fernet
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
+
 def encode_key(password):
+    # Password in bytes
     password = password.encode()
-    salt = b'salt_Mackenzie2019'
+
+    # Salt = Mac Adress in bytes
+    salt = hex(uuid.getnode()).encode()
+
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
         length=32,
@@ -26,7 +32,5 @@ def encode_message(plaintext, key):
     f = Fernet(key)
     token = f.encrypt(plaintext.encode())
 
-    with open('ciphertext.bin', 'wb') as cyphertext:  
+    with open('ciphertext.bin', 'wb') as cyphertext:
         cyphertext.write(token)
-
-

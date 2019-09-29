@@ -23,7 +23,7 @@ def createTable(decryptedMessage):
     # Split in decryptedMessage in lines
     nlines = decryptedMessage.split("[nl]")
 
-    # Insert each line in a List, cleaning empty entries 
+    # Insert each line in a List, cleaning empty entries
     lines = list(filter(None, nlines))
 
     # Split each Line and concat each column in a new list
@@ -37,10 +37,10 @@ def createTable(decryptedMessage):
     # Create a dict using Tabulate
     plain_text = tabulate(
         {
-        "App": apps, 
-        "User": users, 
-        "Password": pws,
-        "Note": notes
+            "App": apps,
+            "User": users,
+            "Password": pws,
+            "Note": notes
         },
         headers="keys")
 
@@ -49,10 +49,10 @@ def createTable(decryptedMessage):
 
 # Search for keyword in decryptedMessage, return lines OR ""
 def search(decryptedMessage, keyword):
-   
+
     # Split decryptedMessage
     lines = decryptedMessage.split("[nl]")
-    
+
     # Result
     result = ""
 
@@ -60,10 +60,6 @@ def search(decryptedMessage, keyword):
     for line in lines:
         if keyword in line:
             result = result + "[nl]" + line
-    
-    # Return lines in case 
+
+    # Return lines in case
     return result
-
-
-        
-
