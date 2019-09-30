@@ -125,4 +125,4 @@ Faz um ataque de força bruta utilizando um dicionário das 10 milhões de senha
 Sair
 
 ### 0. Reset/First Use
-No primeiro uso, é necessário que seja inserido ao menos um um registro para que o arquivo _ciphertext.bin_ seja criado. Ele utilizará a Master Key que foi inserida na inicialização da sessão atual como chave de criptografia. Também pode ser usado como reinicialização do arquivo, excluindo todos os registros em caso de esquecimento da senha ou criação de uma nova tabela.
+No primeiro uso, é necessário que seja inserido ao menos um registro para que o arquivo _ciphertext.bin_ seja criado. Ele utilizará a Master Key que foi inserida na inicialização da sessão atual como chave de criptografia. Também pode ser usado como reinicialização do arquivo, excluindo todos os registros em caso de esquecimento da senha ou criação de uma nova tabela.
