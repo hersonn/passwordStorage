@@ -3,14 +3,15 @@ from tabulate import tabulate
 
 
 # Print formated table
-def showPasswordTable(decryptedMessage):
+def showPasswordTable(decryptedMessage, stop):
 
     # Organize Decrypted Message into a Table
     table = createTable(decryptedMessage)
 
     # Show Table
     print("\n" + table + "\n")
-    os.system("read -r key")
+    if stop == True:
+        os.system("read -r key")
 
 
 # Aux for showPasswordTable() to format decryptedMessage into Tabulate input format

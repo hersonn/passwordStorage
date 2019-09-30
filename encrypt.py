@@ -25,6 +25,9 @@ def encode_key(password):
     )
     key = base64.urlsafe_b64encode(kdf.derive(password))
 
+    #print("Key: " + str(key))
+    #os.system("read -r -p 'Press any key to continue...' key")
+
     return key
 
 

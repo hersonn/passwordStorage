@@ -29,11 +29,11 @@ python main.py
 ### Master Key:
 Definição:
 
-É utilizada pelo algoritmo para criptografar e descriptografar a tabela onde serão armazenados todos os registros. Ela é transformada em um hash via SHA256, utilizando como SALT o Mac Address da máquina. Esse Hash será utilizado como chave para a criptografia via AES dos registros que serão salvos em um arquivo chamado _ciphertext.bin_.
+É utilizada pelo algoritmo para criptografar e descriptografar a tabela onde serão armazenados todos os registros. Ela é transformada em um hash via SHA256 de 32 bytes, utilizando como SALT o Mac Address da máquina. Essa hash será utilizada como chave para criptografar via AES os registros que serão salvos em um arquivo chamado _ciphertext.bin_.
 
 Exemplo:
 ```
-A-bpjp64D_PvgJiJtiS50plnYaaZlNXB8X7YMpMfQGo=
+xbH1db0Ul4jP__MS1Evd9qvzXJ8ve0tXZo5rpF-AmEk=
 ```
 ### Tabela Formatada:
 Definição:
@@ -73,7 +73,8 @@ Fernet foi construído utilizando premissas de criptografia padrão. Especificam
 * AES no modo CBC com uma chave de 128 bits para criptografia;
 * PKCS7 para o padding;
 * HMAC usando SHA256 para autenticação;
-* Os vetores de inicialização são gerados usando os.urandom().
+* SHA256 usando PBKDF2HMAC para derivação de chave;
+* Vetores de inicialização são gerados via os.urandom().
 
 Para mais detalhes, consulte a [especificação técnica](https://github.com/fernet/spec/blob/master/Spec.md).
 
@@ -83,6 +84,17 @@ Exemplo:
 gAAAAABdkSM3HeVcC-jEVLQkw7NxUpefH1d7M2YlrQieK0hlltxhTlvpG9Q8HDXUPA80Vttr35jy3Dx-bEPDevw3rK49Ipty7v34GD8TeNrSQUh7TYWDUiJyGDRLCHxqOdGcwM28rKDZSsnBhxF1CN0ag39w9FFJnXk7v-s5WVD4tRjp9POPiOw=
 ```
 
+### Erro:
+Descrição:
+
+Caso a Master Key seja incorretamente inserida ou o algoritmo esteja sendo executado em outra máquina, qualquer operação resultará em erro. Em excessão à "Reset/First Use".
+
+Exemplo:
+```
+cryptography.exceptions.InvalidSignature: Signature did not match digest.
+During handling of the above exception, another exception occurred:
+cryptography.fernet.InvalidToken
+```
 ## Menu:
 
 ### 1. Show Password Table

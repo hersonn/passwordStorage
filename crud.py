@@ -5,8 +5,6 @@ import view
 import os
 
 # Aux - Input data in a correct format
-
-
 def take_data():
     app = input("App: ")
     user = input("User: ")
@@ -33,9 +31,9 @@ def read(decryptedMessage):
 
     result = view.search(decryptedMessage, keyword)
     if result != "":
-        view.showPasswordTable(result)
+        view.showPasswordTable(result, True)
     else:
-        print("Any keyword found!")
+        print("\nAny keyword found!")
         os.system("read -r key")
 
 
@@ -52,17 +50,19 @@ def input_password(decryptedMessage, key):
 # Remove a registry line
 def remove_password(decryptedMessage, key):
 
-    result = view.search(decryptedMessage)
-    print(result.find('[nl]'))
+    keyword = input("Search for: ")
+    result = view.search(decryptedMessage, keyword)
+    
+    view.showPasswordTable(result, False)
+    op = input("\nAre you sure to delete this registry? (y/n): ")
 
-    if (result.find('[nl]') > -1):
-        print("Contains given substring ")
+    if op == "y":
+        plaintext = decryptedMessage.replace(result, "")
+        encrypt.encode_message(plaintext, key)
     else:
-        print("Doesn't contains given substring")
+        print("Operation aborted!")
+    
     os.system("read -r -p 'Press any key to continue...' key")
-
 
 # Edit a registry line
-def edit_password(decryptedMessage, key):
-
-    os.system("read -r -p 'Press any key to continue...' key")
+#    os.system("read -r -p 'Press any key to continue...' key")
