@@ -87,7 +87,7 @@ gAAAAABdkSM3HeVcC-jEVLQkw7NxUpefH1d7M2YlrQieK0hlltxhTlvpG9Q8HDXUPA80Vttr35jy3Dx-
 ### Erro:
 Descrição:
 
-Caso a Master Key seja incorretamente inserida ou o algoritmo esteja sendo executado em outra máquina, qualquer operação resultará em erro. Em excessão à função "Reset/First Use" e "Dictionary Attack".
+Caso a Master Key seja incorretamente inserida ou o algoritmo esteja sendo executado em outra máquina, qualquer operação resultará em erro. Em excessão às funções "Reset/First Use" e "Dictionary Attack".
 
 Exemplo:
 ```
