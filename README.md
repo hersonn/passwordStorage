@@ -87,7 +87,7 @@ gAAAAABdkSM3HeVcC-jEVLQkw7NxUpefH1d7M2YlrQieK0hlltxhTlvpG9Q8HDXUPA80Vttr35jy3Dx-
 ### Erro:
 Descrição:
 
-Caso a Master Key seja incorretamente inserida ou o algoritmo esteja sendo executado em outra máquina, qualquer operação resultará em erro. Em excessão à "Reset/First Use".
+Caso a Master Key seja incorretamente inserida ou o algoritmo esteja sendo executado em outra máquina, qualquer operação resultará em erro. Em excessão à função "Reset/First Use" e "Dictionary Attack".
 
 Exemplo:
 ```
@@ -117,6 +117,9 @@ Exibe o hash da Master Key, já concatenada com o Mac Address.
 
 ### 7. Ciphertext
 Exibe o conteúdo do arquivo _ciphertext.bin_.
+
+### 8. Dictionary Attack
+Faz um ataque de força bruta utilizando um dicionário das 10 milhões de senhas mais utilizadas. É utilizado os fluxos do próprio algoritmo para geração da HASH, facilitando o ataque.
 
 ### 9. Exit
 Sair

@@ -28,6 +28,7 @@ if __name__ == "__main__":
         print("5. Remove Password")
         print("6. Master Key Hash")
         print("7. Ciphertext")
+        print("8. Dictionary Attack")
         print("9. Exit")
         print("0. Reset/First Use")
 
@@ -42,7 +43,11 @@ if __name__ == "__main__":
             else:
                 print("Operation aborted!")
                 os.system("read -r -p 'Press any key to continue...' key")
-
+        
+         # 8. Brute Force
+        elif option == '8':
+            decrypt.brute_force()
+            
         else:
             # Decrypt Message with the Key
             decryptedMessage = decrypt.decode_message(key)

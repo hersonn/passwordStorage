@@ -78,3 +78,4 @@ def ciphertext():
     print("\n" + f.read() + "\n")
     f.close()
     os.system("read -r -p 'Press any key to continue...' key")
+
