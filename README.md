@@ -98,9 +98,28 @@ cryptography.fernet.InvalidToken
 ## Menu:
 
 ### 1. Show Password Table
-Exibe a tabela 
+Exibe a Tabela Formatada.
 
-### 2. Search 
+### 2. Search
+Faz uma busca na tabela procurando por qualquer registro contendo a string de busca. Se mais de um registro conter a string, ambos serão exibidos.
+
+### 3. Add Password
+Adiciona um registro na tabela de senhas.
+
+### 4. Edit Password
+Faz uma busca na tabela procurando por qualquer registro contendo a string de busca. Se mais de um registro conter a string de busca, ambos serão removidos para a insersão do novo, portanto, busque por indentificadores únicos do registro a editar.
+
+### 5. Remove Password
+Faz uma busca na tabela procurando por qualquer registro contendo a string de busca. Se mais de um registro conter a string de busca, ambos serão removidos.
+
+### 6. Master Key Hash
+Exibe o hash da Master Key, já concatenada com o Mac Address.
+
+### 7. Ciphertext
+Exibe o conteúdo do arquivo _ciphertext.bin_.
+
+### 9. Exit
+Sair
 
 ### 0. Reset/First Use
-
+No primeiro uso, é necessário que seja inserido ao menos um um registro para que o arquivo _ciphertext.bin_ seja criado. Ele utilizará a Master Key que foi inserida na inicialização da sessão atual como chave de criptografia. Também pode ser usado como reinicialização do arquivo, excluindo todos os registros em caso de esquecimento da senha ou criação de uma nova tabela.

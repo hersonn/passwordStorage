@@ -64,3 +64,17 @@ def search(decryptedMessage, keyword):
 
     # Return lines in case
     return result
+
+
+# Print Master Key
+def master_key(key):
+    print("\n" + key.decode("utf-8") + "\n")
+    os.system("read -r -p 'Press any key to continue...' key")
+
+
+# Print Cipher Text
+def ciphertext():
+    f = open("ciphertext.bin","r+")
+    print("\n" + f.read() + "\n")
+    f.close()
+    os.system("read -r -p 'Press any key to continue...' key")

@@ -65,4 +65,20 @@ def remove_password(decryptedMessage, key):
     os.system("read -r -p 'Press any key to continue...' key")
 
 # Edit a registry line
-#    os.system("read -r -p 'Press any key to continue...' key")
+def edit_password(decryptedMessage, key):
+    keyword = input("Search for: ")
+    result = view.search(decryptedMessage, keyword)
+    
+    view.showPasswordTable(result, False)
+    op = input("\nAre you sure to edit this registry? (y/n): ")
+
+    if op == "y":
+        plaintext = decryptedMessage.replace(result, "")
+        encrypt.encode_message(plaintext, key)
+
+        input_password(plaintext, key)
+
+    else:
+        print("Operation aborted!")
+    
+    os.system("read -r -p 'Press any key to continue...' key")

@@ -26,6 +26,8 @@ if __name__ == "__main__":
         print("3. Add Password")
         print("4. Edit Password")
         print("5. Remove Password")
+        print("6. Master Key Hash")
+        print("7. Ciphertext")
         print("9. Exit")
         print("0. Reset/First Use")
 
@@ -34,7 +36,7 @@ if __name__ == "__main__":
         # 0. Reset/First Use
         if option == '0':
             reset = input("All your data will be lost! Are you sure? (y/n): ")
-            
+
             if reset == 'y':
                 crud.reset(key)
             else:
@@ -64,6 +66,14 @@ if __name__ == "__main__":
             # 5. Remove Password
             elif option == '5':
                 crud.remove_password(decryptedMessage, key)
+            
+            # 6. Show Password Hash
+            elif option == '6':
+               view.master_key(key)
+            
+            # 7. Print ciphertext.bin
+            elif option == '7':
+               view.ciphertext()
 
             # 9. Exit
             elif option == '9':
